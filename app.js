@@ -6,7 +6,8 @@ class App {
    * @memberof App
    */
   constructor(host = "http://localhost", porta = 8080) {
-    this.server = `${host}:${porta}`;
+    //this.server = `${host}:${porta}`;
+    this.server = "https://api-mdb-atlas.herokuapp.com/";
     this.formEl = document.getElementById("formCadastro");
     this.social = document.getElementsByName("fsocial");
     this.socialToggle = document.getElementById("socialToggle");
@@ -19,47 +20,89 @@ class App {
   manipuladorFormulario() {
     this.formEl.onsubmit = event => this.enviarFormulario(event);
     this.formEl.oninput = event => this.validarFormulario(event);
-    this.formEl.fsocial.oninput = event => this.alternanciaFormulario(event);
-    this.formEl.ftelefone.oninput = event => this.normalizarTelefone(event);
-    this.formEl.fmidia.checkbox
+    this.formEl.social.oninput = event => this.alternanciaFormulario(event);
+    this.formEl.telefone.oninput = event => this.normalizarTelefone(event);
     
+    // this.formEl.midia.checkbox
+
     for (const item of this.social) {
-        item.oninput = () => {
-            this.socialToggle.style.display === 'none' ?
-                this.socialToggle.style.display = 'block' :
-                this.socialToggle.style.display = 'none'
-        }
+      item.oninput = () => {
+        this.socialToggle.style.display === "none"
+          ? (this.socialToggle.style.display = "block")
+          : (this.socialToggle.style.display = "none");
+      };
     }
   }
 
-
   validarFormulario(event) {
     const regexNome = /[A-ZÁÉÍÓÚÀÂÊÔÃÕÜÇ'-][a-záéíóúàâêôãõüç'-].* [A-ZÁÉÍÓÚÀÂÊÔÃÕÜÇ'-][a-záéíóúàâêôãõüç'-].*/;
-    const regexTelefone = /(\d{2})(\d{4})(\d{4})/;
+    const regexTelefone = /(\d{2})(\d{8})/;
     const regexMidia = /\w*/;
     const regexSocial = /true/;
+    /*
+    const vnome = regexNome.test(this.formEl.nome.value);
+    const vtelefone = regexTelefone.test(this.formEl.telefone.value);
+    const vmidia = regexMidia.test(this.formEl.midia.value);
+    const vsocial = regexSocial.test(this.formEl.social.value);
+    */
+    let validade = false;
+    switch (event.target.name) {
+        case 'nome':
+            validade = regexNome.test(event.target.value);
+            break;
+    
+        case 'telefone':
+            validade = regexTelefone.test(event.target.value);
+            break;
 
-    const vnome = regexNome.test(this.formEl.fnome.value);
-    const vtelefone = regexTelefone.test(this.formEl.ftelefone.value);
-    const vmidia = regexMidia.test(this.formEl.fmidia.value);
-    const vsocial = regexSocial.test(this.formEl.fsocial.value);
+        case 'midia':
+            validade = regexMidia.test(event.target.value);
+            break;
+
+        case 'social':
+            validade = regexSocial.test(event.target.value);
+            break;
+    
+        default:
+            validade = null;
+            break;
+    }
 
     this.formEl.checkValidity()
       ? (document.getElementById("submit-form").disabled = false)
       : null;
-        /*
-        console.log('nome',this.formEl.fnome.validity.valid);
-        console.log('tel', this.formEl.ftelefone.validity.valid);
-        console.log('midia',this.formEl.fmidia.validity.valid);
-        console.log('social',this.formEl.fsocial[0].validity.valid);
-        console.log('social',this.formEl.fsocial[1].validity.valid);
-        */
+    
+    console.log(event.target)
+
+    validade
+        ? event.target.setAttribute('style', 'background-color: #ddffdd;')
+        : event.target.setAttribute('style', 'background-color: #ffdddd;');
   }
   normalizarTelefone = ({ target }) => {
     target.value = target.value
       .replace(/\D+/g, "")
-      .replace(/(\d{2})(\d{4})(\d{4})/, "$1-$2$3");
+      .replace(/(\d{2})(\d{8})/, "$1-$2");
   };
+
+  mensagemSpan(msg, duration, elemento) {
+    console.log(msg)
+    var el = elemento.innerHTML;
+    console.log(el)
+    elemento.setAttribute(
+      "style",
+      "color:green; border-style: solid; border-color: green; text-align: center;"
+    );
+    elemento.innerHTML = msg;
+    setTimeout(function() {
+        elemento.setAttribute(
+            "style",
+            "color:black;"
+        );
+        elemento.innerHTML = el;
+    }, duration);
+        
+
+  }
 
   /**
    * @param {*} event
@@ -72,28 +115,44 @@ class App {
     const searchParams = new URLSearchParams();
     const social = [];
 
-    for (const data of formData) {
-      data[0].includes("social")
-        ? social.push(data[1])
-        : searchParams.append(data[0], data[1]);
-    }
-    social.length > 1
-      ? searchParams.append("social", social)
-      : console.log("Sem rede social");
+    const objeto = {};
+    formData.forEach((v, k) => {
+      k == "social" ? social.push(v) : (objeto[k] = v.toString());
+    });
+    social.length > 1 ? (objeto["social"] = social) : null;
 
-    //var urlencoded = new URLSearchParams()
-    //urlencoded.append("campo", "valor")
+    delete objeto["fsocial"];
+    console.log(objeto);
+
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    myHeaders.append("Accept", "application/json");
+
+    var raw = JSON.stringify({
+      nome: "Bunda Mole",
+      telefone: "12-55445544",
+      midia: "tv",
+      social: ["Facebook", "Instagram"]
+    });
+    console.log(raw);
 
     const requestOptions = {
+      headers: myHeaders,
       method: "POST",
-      body: searchParams,
+      body: JSON.stringify(objeto),
       redirect: "follow",
-      mode: "no-cors"
+      mode: "cors"
     };
 
     fetch(this.server, requestOptions)
-      .then(response => response.text())
-      .then(result => console.log(result))
+      .then(function(response) {
+        console.log(response);
+        return response.json();
+      })
+      .then(({ mensagem }) => {
+        console.log(mensagem);
+        this.mensagemSpan(mensagem, 5000, document.getElementById('mensagem'));
+      })
       .catch(error => console.log("error", error));
   }
 }

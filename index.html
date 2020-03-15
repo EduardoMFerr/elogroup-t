@@ -7,134 +7,147 @@
     <link rel="stylesheet" href="style.css" />
     <title>Document</title>
   </head>
+
   <body>
-    <form action="#" name="formCadastro" id="formCadastro">
-      <center>
-      <h1><strong>elo</strong>group</h1>
-      </center> 
-      <p>
-        Os campos obrigatórios são seguidos por
-        <strong><abbr title="required">*</abbr></strong>.
-      </p>
-      <section>
-        <h2>Informação de contato</h2>
-        <p>
-          <label for="fnome">
-            <span>Nome: </span>
-            <strong><abbr title="required">*</abbr></strong>
+    <div class="container">
+      <form action="#" name="formCadastro" id="formCadastro">
+        <!--center>
+          <h1><strong>elo</strong>group</h1>
+        </center-->
+        <section class="bgImage"></section>
+        <div id="mensagem">
+          <p>
+            Os campos obrigatórios são seguidos por
+            <strong><abbr title="required">*</abbr></strong
+            >.
+          </p>
+        </div>
+
+        <section>
+          <h2>Informação de contato</h2>
+          <p>
+            <label for="nome">
+              <span>Nome: </span>
+              <strong><abbr title="required">*</abbr></strong>
+            </label>
             <input
-                type="text"
-                id="fnome"
-                name="fnome"
-                pattern="[A-ZÁÉÍÓÚÀÂÊÔÃÕÜÇ'-][a-záéíóúàâêôãõüç'-].* [A-ZÁÉÍÓÚÀÂÊÔÃÕÜÇ'-][a-záéíóúàâêôãõüç'-].*"
-                title="Informe nome com o sobrenome."
-                required/>
-          </label>
-        </p>
+              type="text"
+              id="nome"
+              name="nome"
+              pattern="[A-ZÁÉÍÓÚÀÂÊÔÃÕÜÇ'-][a-záéíóúàâêôãõüç'-].* [A-ZÁÉÍÓÚÀÂÊÔÃÕÜÇ'-][a-záéíóúàâêôãõüç'-].*"
+              title="Informe nome com o sobrenome."
+              required
+            />
+          </p>
 
-        <p>
-          <label for="ftelefone">
-            <span>Telefone: </span>
-            <strong><abbr title="required">*</abbr></strong>
+          <p>
+            <label for="telefone">
+              <span>Telefone: </span>
+              <strong><abbr title="required">*</abbr></strong>
+            </label>
             <input
-                type="tel"
-                id="ftelefone"
-                name="ftelefone"
-                pattern="(\d{2})-(\d{4})(\d{4})"
-                title="Ex.:99-99999999"
-                maxlength="10"
-                minlength="10"
-                required/>
-          </label>
-        </p>
-		<p>
-			<label for="fmidia">
-                <span>Como nos conheceu?</span>
-                <strong><abbr title="required">*</abbr></strong>
-                <select
-                id="fmidia"
-                name="fmidia"
-                title="Selecione a mídia pela qual nos conheceu."
-                required>
-                    <option disabled selected value>--Selecione--</option>
-                    <option value="tv">TV</option>
-                    <option value="internet">Internet</option>
-                    <option value="outros">Outros</option>
-                </select>
-		    </label>
-		</p>
+              type="tel"
+              id="telefone"
+              name="telefone"
+              pattern="(\d{2})-(\d{8})"
+              title="Ex.:99-99999999"
+              maxlength="10"
+              minlength="10"
+              required
+            />
+          </p>
+          <p>
+            <label for="midia">
+              <span>Como nos conheceu?</span>
+              <strong><abbr title="required">*</abbr></strong>
+            </label>
+            <select
+              id="midia"
+              name="midia"
+              title="Selecione a mídia pela qual nos conheceu."
+              required
+            >
+              <option disabled selected value>--Selecione--</option>
+              <option value="tv">TV</option>
+              <option value="internet">Internet</option>
+              <option value="outros">Outros</option>
+            </select>
+          </p>
 
-        <fieldset>
-          <legend>Possui rede social?</legend>
-          <ul>
-            <li>
-              <label for="socialTrue">
-                <input
-                  type="radio"
-                  id="socialTrue"
-                  name="fsocial"
-                  value="true"
-                  pattern="true"
-                />Sim </label
-              ><br />
-            </li>
-            <li>
-              <label for="socialFalse">
-                <input
-                  type="radio"
-                  id="socialFalse"
-                  name="fsocial"
-                  value="false"
-                  pattern="false"
-                  checked
-                />Não </label
-              ><br />
-            </li>
-          </ul>
-        </fieldset>
+          <fieldset>
+            <legend>Rede social?</legend>
+            <div class="switch switch-yellow">
+              <input
+                type="radio"
+                class="switch-input"
+                name="fsocial"
+                value="true"
+                id="fsocialTrue"
+                checked
+              />
+              <label for="fsocialTrue" class="switch-label switch-label-off"
+                >Sim</label
+              >
 
-        <fieldset id="socialToggle" style="display: none;">
-          <legend>Informe sua rede social
-            <strong><abbr title="required">*</abbr></strong>
-          </legend>
-          
-          <ul>
-            <li>
-              <label for="fcsocial">
-                <input
-                  type="checkbox"
-                  id="social1"
-                  name="fcsocial"
-                  value="Facebook"
-                />Facebook</label
+              <input
+                type="radio"
+                class="switch-input"
+                name="fsocial"
+                value="false"
+                id="fsocialFalse"
+              />
+              <label for="fsocialFalse" class="switch-label switch-label-on"
+                >Não</label
               >
-            </li>
-            <li>
-              <label for="fcsocial">
-                <input
-                  type="checkbox"
-                  id="social2"
-                  name="fcsocial"
-                  value="LinkdIn"
-                />LinkdIn</label
-              >
-            </li>
-            <li>
-              <label for="fcsocial">
-                <input
-                  type="checkbox"
-                  id="social3"
-                  name="fcsocial"
-                  value="Instagram"
-                />Instagram</label
-              >
-            </li>
-          </ul>
-        </fieldset>
 
-      </section>
-      <button for="formCadastro" id="submit-form" type="submit" disabled="true" >Enviar Formulário</button>
-    </form>
+              <span class="switch-selection"></span>
+            </div>
+            <div id="socialToggle" style="display: none;">
+              <ul>
+                <li>
+                  <label for="social1">
+                    <input
+                      type="checkbox"
+                      id="social1"
+                      name="social"
+                      value="Facebook"
+                    />Facebook</label
+                  >
+                </li>
+                <li>
+                  <label for="social2">
+                    <input
+                      type="checkbox"
+                      id="social2"
+                      name="social"
+                      value="LinkdIn"
+                    />LinkdIn</label
+                  >
+                </li>
+                <li>
+                  <label for="social3">
+                    <input
+                      type="checkbox"
+                      id="social3"
+                      name="social"
+                      value="Instagram"
+                    />Instagram</label
+                  >
+                </li>
+              </ul>
+            </div>
+          </fieldset>
+        </section>
+        <button
+          for="formCadastro"
+          id="submit-form"
+          type="submit"
+          disabled="true"
+        >
+          Enviar Formulário
+        </button>
+      </form>
+    </div>
     <script src="app.js"></script>
   </body>
 </html>
