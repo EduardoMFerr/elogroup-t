@@ -36,15 +36,10 @@ class App {
 
   validarFormulario(event) {
     const regexNome = /[A-ZÁÉÍÓÚÀÂÊÔÃÕÜÇ'-][a-záéíóúàâêôãõüç'-].* [A-ZÁÉÍÓÚÀÂÊÔÃÕÜÇ'-][a-záéíóúàâêôãõüç'-].*/;
-    const regexTelefone = /(\d{2})(\d{8})/;
+    const regexTelefone = /(\d{2})-(\d{8})/;
     const regexMidia = /\w*/;
     const regexSocial = /true/;
-    /*
-    const vnome = regexNome.test(this.formEl.nome.value);
-    const vtelefone = regexTelefone.test(this.formEl.telefone.value);
-    const vmidia = regexMidia.test(this.formEl.midia.value);
-    const vsocial = regexSocial.test(this.formEl.social.value);
-    */
+
     let validade = false;
     switch (event.target.name) {
         case 'nome':
@@ -59,30 +54,64 @@ class App {
             validade = regexMidia.test(event.target.value);
             break;
 
-        case 'social':
+        case 'fsocial':
             validade = regexSocial.test(event.target.value);
+            validade? console.log(event): console.log(validade);
+            this.verificarRequired(validade)
             break;
-    
+
+        case 'social':
+            validade = regexSocial.test(event.target.checked);
+            this.verificarCheckbox()
+            break;
+
         default:
             validade = null;
             break;
     }
-
-    this.formEl.checkValidity()
-      ? (document.getElementById("submit-form").disabled = false)
-      : null;
-    
-    console.log(event.target)
-
+    /*
     validade
         ? event.target.setAttribute('style', 'background-color: #ddffdd;')
         : event.target.setAttribute('style', 'background-color: #ffdddd;');
+    */
+   validade
+        ? event.target.style['background-color'] = "#ddffdd"
+        : event.target.style['background-color'] = "#ffdddd";
+    
+    document.getElementById("submit-form").disabled = !this.formEl.checkValidity();
+
   }
+  verificarRequired(validade){
+      validade
+        ? this.formEl.social.forEach(elemento => elemento.required = validade)
+        : this.formEl.social.forEach(elemento => {
+            elemento.removeAttribute('required');
+            elemento.checked = false;
+        })
+  }
+
+  verificarCheckbox(){
+    let check = 0;
+    this.formEl.social.forEach((elemento) => {
+        if (elemento.checked) check++;
+        console.log(check)
+    })
+
+    this.formEl.social.forEach((elemento) => {
+        check<1
+            ? elemento.required = true
+            : elemento.removeAttribute('required')
+    })
+
+    
+  }
+
   normalizarTelefone = ({ target }) => {
     target.value = target.value
       .replace(/\D+/g, "")
       .replace(/(\d{2})(\d{8})/, "$1-$2");
   };
+
 
   mensagemSpan(msg, duration, elemento) {
     console.log(msg)
