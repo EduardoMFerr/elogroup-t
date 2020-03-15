@@ -56,7 +56,6 @@ class App {
 
         case 'fsocial':
             validade = regexSocial.test(event.target.value);
-            validade? console.log(event): console.log(validade);
             this.verificarRequired(validade)
             break;
 
@@ -94,7 +93,6 @@ class App {
     let check = 0;
     this.formEl.social.forEach((elemento) => {
         if (elemento.checked) check++;
-        console.log(check)
     })
 
     this.formEl.social.forEach((elemento) => {
@@ -114,9 +112,7 @@ class App {
 
 
   mensagemSpan(msg, duration, elemento) {
-    console.log(msg)
     var el = elemento.innerHTML;
-    console.log(el)
     elemento.setAttribute(
       "style",
       "color:green; border-style: solid; border-color: green; text-align: center;"
@@ -148,22 +144,13 @@ class App {
     formData.forEach((v, k) => {
       k == "social" ? social.push(v) : (objeto[k] = v.toString());
     });
-    social.length > 1 ? (objeto["social"] = social) : null;
+    social.length > 0 ? (objeto["social"] = social) : null;
 
     delete objeto["fsocial"];
-    console.log(objeto);
 
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
     myHeaders.append("Accept", "application/json");
-
-    var raw = JSON.stringify({
-      nome: "Bunda Mole",
-      telefone: "12-55445544",
-      midia: "tv",
-      social: ["Facebook", "Instagram"]
-    });
-    console.log(raw);
 
     const requestOptions = {
       headers: myHeaders,
@@ -175,11 +162,9 @@ class App {
 
     fetch(this.server, requestOptions)
       .then(function(response) {
-        console.log(response);
         return response.json();
       })
       .then(({ mensagem }) => {
-        console.log(mensagem);
         this.mensagemSpan(mensagem, 5000, document.getElementById('mensagem'));
       })
       .catch(error => console.log("error", error));
