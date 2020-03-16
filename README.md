@@ -36,11 +36,13 @@ Navegador moderno para executar a aplicação.
 * [GITPOD](https://www.gitpod.io/) - ambiente de desenvolvimento integrado
 * Conceitos JSON e REST;
 
-### Hierarquia(s)
+### Hierarquia(s) 
+```
 /
-/--/index.html
-/--/style.css
-/--/app.js
+... /index.html
+... /style.css
+... /app.js
+```
 
 ### Gupy
 Eduardo
