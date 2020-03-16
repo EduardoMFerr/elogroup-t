@@ -27,7 +27,7 @@
           <h2>Informação de contato</h2>
           <p>
             <label for="nome">
-              <span>Nome: </span>
+              <span>Nome e Sobrenome: </span>
               <strong><abbr title="required">*</abbr></strong>
             </label>
             <input
@@ -36,6 +36,7 @@
               name="nome"
               pattern="[A-ZÁÉÍÓÚÀÂÊÔÃÕÜÇ'-][a-záéíóúàâêôãõüç'-].* [A-ZÁÉÍÓÚÀÂÊÔÃÕÜÇ'-][a-záéíóúàâêôãõüç'-].*"
               title="Informe nome com o sobrenome."
+              placeholder="Ex.: José da Silva"
               required
             />
           </p>
@@ -51,6 +52,7 @@
               name="telefone"
               pattern="(\d{2})-(\d{8})"
               title="Ex.:99-99999999"
+              placeholder="Ex.:99-99999999"
               maxlength="10"
               minlength="10"
               required
