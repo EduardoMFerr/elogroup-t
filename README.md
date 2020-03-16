@@ -10,8 +10,8 @@ Então, decidi desenvolver utilizando:
 
 Além de serem recursos nativos na maioria dos navegadores modernos e atenderem a demanda do projeto, também dispensam a preparação de ambiente de desenvolvimento complexo e bits de código de pacotes grandes que não seriam utilizados no projeto.
 
----
-### Pre-Requisitos
+___
+#### Pre-Requisitos
 Navegador moderno para executar a aplicação.
 
 ### Instalação e Execução
@@ -20,7 +20,6 @@ Navegador moderno para executar a aplicação.
  ```https://github.com/EduardoFerr/elogroup-t```.
 3. _Na pasta raiz, abra o arquivo_ **index.html** _no seu navegador para executar a aplicação_.
 4. _Pronto!_
----
 
 ### Recursos utilizados no desenvolvimento:
 * HTML5 - linguagem de marcação
@@ -37,6 +36,7 @@ Navegador moderno para executar a aplicação.
 --/app.js
 --/README.md
 ```
+___
 
 #### Gupy
  Eduardo
