@@ -44,12 +44,12 @@ class App {
 
         case 'fsocial':
             validade = regexSocial.test(event.target.value);
-            this.verificarRequired(validade)
+            this.verificarRequired(validade);
             break;
 
         case 'social':
             validade = regexSocial.test(event.target.checked);
-            this.verificarCheckbox()
+            this.verificarCheckbox();
             break;
 
         default:
@@ -102,13 +102,21 @@ class App {
       "color:green; border-style: solid; border-color: green; text-align: center;"
     );
     elemento.innerHTML = msg;
-    setTimeout(function() {
+    setTimeout(() => {
         elemento.setAttribute(
             "style",
             "color:black;"
         );
         elemento.innerHTML = el;
     }, duration);
+  }
+
+  //Reinicia/prepara o formulário para nova submissão
+  resetarForm(){
+    this.formEl.reset();
+    document.getElementById("submit-form").disabled = true;
+    this.verificarRequired(false);
+    this.socialToggle.style.display = "none";
   }
 
   //Manipula a submição do formulário
@@ -144,9 +152,12 @@ class App {
       })
       .then(({ mensagem }) => {
         this.mensagemSpan(mensagem, 5000, document.getElementById('mensagem'));
+        this.resetarForm()
+
       })
       .catch(error => console.log("error", error));
   }
 }
 
 new App();
+
