@@ -13,8 +13,8 @@ Então, decidi desenvolver utilizando:
 * [HTML](https://developer.mozilla.org/pt-BR/docs/Web/HTML/HTML5)
 * [CSS](https://developer.mozilla.org/pt-BR/docs/Web/CSS)
 * [Javascript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
-Além de serem recursos nativos na maioria dos navegadores modernos e atenderem a demanda do projeto, também dispensam a preparação de ambiente de desenvolvimento complexo e bits de código de pacotes grandes que não seriam utilizados no projeto.
 
+Além de serem recursos nativos na maioria dos navegadores modernos e atenderem a demanda do projeto, também dispensam a preparação de ambiente de desenvolvimento complexo e bits de código de pacotes grandes que não seriam utilizados no projeto.
 
 #### Pre-Requisitos
 
