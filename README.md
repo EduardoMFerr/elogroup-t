@@ -51,5 +51,6 @@ _ferr.tutorial@gmail.com_
 [EduardoFerr](https://github.com/EduardoFerr/)
 
 ___
-Abrir projeto no Gitpod 
+Acesse o link para abrir o projeto diretamente no Gitpod
+
 [![Abrir projeto no Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/EduardoFerr/elogroup-t)
