@@ -39,9 +39,10 @@ Navegador moderno para executar a aplicação.
 ### Hierarquia(s) 
 ```
 /
-... /index.html
-... /style.css
-... /app.js
+--/index.html
+--/style.css
+--/app.js
+--/README.md
 ```
 
 ### Gupy
