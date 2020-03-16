@@ -15,7 +15,7 @@ ___
 Navegador moderno para executar a aplicação.
 
 ### Instalação e Execução
-1. _Dispensa instalação de ambiente para execução_
+1. _Dispensa instalação de ambiente para execução_.
 2. _Faça o download ou clone o repositório_: 
  ```https://github.com/EduardoFerr/elogroup-t```.
 3. _Na pasta raiz, abra o arquivo_ **index.html** _no seu navegador para executar a aplicação_.
@@ -51,4 +51,5 @@ _ferr.tutorial@gmail.com_
 [EduardoFerr](https://github.com/EduardoFerr/)
 
 ___
+Abrir projeto no Gitpod 
 [![Abrir projeto no Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/EduardoFerr/elogroup-t)
