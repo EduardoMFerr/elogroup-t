@@ -44,13 +44,13 @@ ___
 #### Desenvolvido por:
  Eduardo de Moraes Ferreira
 
-#### Email para contato
+##### Email para contato
 _ferr.tutorial@gmail.com_
 
-#### Github
+##### Github
 [EduardoFerr](https://github.com/EduardoFerr/)
 
 ___
-Acesse o link para abrir o projeto diretamente no Gitpod
+Acesse o link para abrir o projeto diretamente no Gitpod:
 
 [![Abrir projeto no Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/EduardoFerr/elogroup-t)
