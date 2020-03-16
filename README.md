@@ -10,7 +10,7 @@ Então, decidi desenvolver utilizando:
 
 Além de serem recursos nativos na maioria dos navegadores modernos e atenderem a demanda do projeto, também dispensam a preparação de ambiente de desenvolvimento complexo e bits de código de pacotes grandes que não seriam utilizados no projeto.
 
-#### Pre-Requisitos
+### Pre-Requisitos
 Navegador moderno para executar a aplicação.
 
 ### Instalação e Execução
@@ -36,7 +36,7 @@ Navegador moderno para executar a aplicação.
 --/README.md
 ```
 
-### Gupy
+#### Gupy
  Eduardo
 
 #### Desenvolvido por:
