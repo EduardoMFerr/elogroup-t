@@ -1,6 +1,6 @@
 # Desafio de Programação _EloGroup_
 
-[![Abrir no Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/EduardoFerr/elogroup-t)
+[![Abrir projeto no Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/EduardoFerr/elogroup-t)
 
 ## Aplicação HTML5, CSS3 e Javascript
 
