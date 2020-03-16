@@ -1,10 +1,4 @@
 class App {
-  /**
-   *Creates an instance of App.
-   * @param {string} [host='http://localhost']
-   * @param {number} [porta=8080]
-   * @memberof App
-   */
   constructor() {
     this.server = "http://localhost:8080";
     this.formEl = document.getElementById("formCadastro");
@@ -12,17 +6,11 @@ class App {
     this.socialToggle = document.getElementById("socialToggle");
     this.manipuladorFormulario();
   }
-
-  /**
-   * @memberof App
-   */
+  //Método para manipular eventos do formulário
   manipuladorFormulario() {
     this.formEl.onsubmit = event => this.enviarFormulario(event);
     this.formEl.oninput = event => this.validarFormulario(event);
-    this.formEl.social.oninput = event => this.alternanciaFormulario(event);
     this.formEl.telefone.oninput = event => this.normalizarTelefone(event);
-    
-    // this.formEl.midia.checkbox
 
     for (const item of this.social) {
       item.oninput = () => {
@@ -33,6 +21,7 @@ class App {
     }
   }
 
+  //Método responsável validar o formulário
   validarFormulario(event) {
     const regexNome = /[A-ZÁÉÍÓÚÀÂÊÔÃÕÜÇ'-][a-záéíóúàâêôãõüç'-].* [A-ZÁÉÍÓÚÀÂÊÔÃÕÜÇ'-][a-záéíóúàâêôãõüç'-].*/;
     const regexTelefone = /(\d{2})-(\d{8})/;
@@ -67,18 +56,14 @@ class App {
             validade = null;
             break;
     }
-    /*
-    validade
-        ? event.target.setAttribute('style', 'background-color: #ddffdd;')
-        : event.target.setAttribute('style', 'background-color: #ffdddd;');
-    */
    validade
         ? event.target.style['background-color'] = "#ddffdd"
         : event.target.style['background-color'] = "#ffdddd";
     
     document.getElementById("submit-form").disabled = !this.formEl.checkValidity();
-
   }
+  
+  //Auxilia a validação do checkbox
   verificarRequired(validade){
       validade
         ? this.formEl.social.forEach(elemento => elemento.required = validade)
@@ -87,7 +72,8 @@ class App {
             elemento.checked = false;
         })
   }
-
+ 
+  //Auxilia a validação do checkbox
   verificarCheckbox(){
     let check = 0;
     this.formEl.social.forEach((elemento) => {
@@ -98,18 +84,17 @@ class App {
         check<1
             ? elemento.required = true
             : elemento.removeAttribute('required')
-    })
-
-    
+    })  
   }
 
+  //Normaliza o formato da entrada do input do telefone
   normalizarTelefone = ({ target }) => {
     target.value = target.value
       .replace(/\D+/g, "")
       .replace(/(\d{2})(\d{8})/, "$1-$2");
-  };
+  }
 
-
+  //Exibe a mensagem de confirmação de envio do POST
   mensagemSpan(msg, duration, elemento) {
     var el = elemento.innerHTML;
     elemento.setAttribute(
@@ -124,17 +109,11 @@ class App {
         );
         elemento.innerHTML = el;
     }, duration);
-        
-
   }
 
-  /**
-   * @param {*} event
-   * @memberof App
-   */
+  //Manipula a submição do formulário
   enviarFormulario(event) {
     event.preventDefault();
-
     const formData = new FormData(this.formEl);
     const searchParams = new URLSearchParams();
     const social = [];
