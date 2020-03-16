@@ -123,10 +123,9 @@ class App {
   enviarFormulario(event) {
     event.preventDefault();
     const formData = new FormData(this.formEl);
-    const searchParams = new URLSearchParams();
     const social = [];
-
     const objeto = {};
+
     formData.forEach((v, k) => {
       k == "social" ? social.push(v) : (objeto[k] = v.toString());
     });
