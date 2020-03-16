@@ -1,7 +1,7 @@
 # Desafio de Programação _EloGroup_
 
 ## Aplicação HTML5, CSS3 e Javascript
----
+
 A empresa [EloGroup](https://elogroup.com.br/) propôs o desafio de desenvolver um formulário de cadastro em HTML e uma rotina em Javascript (javascript puro ou algum framework javascript) capaz de manipular e enviar os dados do formulário utilizando o método POST em formato JSON para o _endpoint_: "http://localhost:8080". 
 
 ## Escolha da tecnologia 
@@ -35,6 +35,7 @@ Navegador moderno para executar a aplicação.
 * Conceitos JSON e REST;
 
 ### Hierarquia(s) 
+---
 ```
 /
 --/index.html
@@ -45,11 +46,11 @@ Navegador moderno para executar a aplicação.
 
 ### Gupy
 ---
-Eduardo
+ Eduardo
 
 #### Desenvolvido por:
 ---
-Eduardo de Moraes Ferreira
+ Eduardo de Moraes Ferreira
 
 #### Email para contato
 ---
@@ -59,5 +60,5 @@ _ferr.tutorial@gmail.com_
 ---
 [EduardoFerr](https://github.com/EduardoFerr/)
 
----
+
 [![Abrir projeto no Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/EduardoFerr/elogroup-t)
