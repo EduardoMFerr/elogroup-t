@@ -1,7 +1,6 @@
 # Desafio de Programação _EloGroup_
 
 ## Aplicação HTML5, CSS3 e Javascript
-
 A empresa [EloGroup](https://elogroup.com.br/) propôs o desafio de desenvolver um formulário de cadastro em HTML e uma rotina em Javascript (javascript puro ou algum framework javascript) capaz de manipular e enviar os dados do formulário utilizando o método POST em formato JSON para o _endpoint_: "http://localhost:8080". 
 
 ## Escolha da tecnologia 
