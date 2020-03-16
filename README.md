@@ -25,7 +25,7 @@ Navegador moderno para executar a aplicação.
 * HTML5 - linguagem de marcação
 * CSS3 - linguagem de estilo
 * Javascript - linguagem de programação
-* [GITPOD](https://www.gitpod.io/) - ambiente de desenvolvimento integrado
+* [Gitpod](https://www.gitpod.io/) - ambiente de desenvolvimento integrado
 * Conceitos JSON e REST;
 
 ### Hierarquia(s) 
