@@ -5,9 +5,8 @@ class App {
    * @param {number} [porta=8080]
    * @memberof App
    */
-  constructor(host = "http://localhost", porta = 8080) {
-    //this.server = `${host}:${porta}`;
-    this.server = "https://api-mdb-atlas.herokuapp.com/";
+  constructor() {
+    this.server = "http://localhost:8080";
     this.formEl = document.getElementById("formCadastro");
     this.social = document.getElementsByName("fsocial");
     this.socialToggle = document.getElementById("socialToggle");
